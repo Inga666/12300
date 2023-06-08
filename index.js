@@ -11,7 +11,7 @@ const chats = {}
 
 
 const startGame = async (chatId) => {
-    await bot.sendMessage(chatId, `Сейчас я загадаю цифру от 0 до 9, а ты должен ее угадать!`);
+    await bot.sendMessage(chatId, `Сейчас я загадаю цифру от 0 до 9, а ты должен её угадать!`);
     const randomNumber = Math.floor(Math.random() * 10)
     chats[chatId] = randomNumber;
     await bot.sendMessage(chatId, 'Отгадывай', gameOptions);
@@ -29,7 +29,7 @@ const start = async () => {
     bot.setMyCommands([
         {command: '/start', description: 'Начальное приветствие'},
         {command: '/info', description: 'Получить информацию о пользователе'},
-        {command: '/game', description: 'Игра угадай цифру'},
+        {command: '/game', description: 'Игра "Угадай цифру"'},
     ])
 
     bot.on('message', async msg => {
@@ -40,7 +40,7 @@ const start = async () => {
             if (text === '/start') {
                 await UserModel.create({chatId})
                 await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp')
-                return bot.sendMessage(chatId, `Добро пожаловать в телеграм бот автора ютуб канала ULBI TV`);
+                return bot.sendMessage(chatId, `Добро пожаловать в телеграм бот. Давай сыграем в игру!`);
             }
             if (text === '/info') {
                 const user = await UserModel.findOne({chatId})
