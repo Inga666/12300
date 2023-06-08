@@ -1,7 +1,0 @@
-const {Telegraf} = require('telegraf')
-const bot = new Telegraf('5771656624:AAEc4Al6Dh44KU1_10x31daxa5kyPDGLxB8')
-bot.start((ctx) => ctx.reply('Этому боту ты можешь отправить стикер'))
-bot.help((ctx) => ctx.reply('Отправь мне стикер'))
-bot.on('sticker', (ctx) => ctx.reply('***'))
-bot.hears('Привет', (ctx) => ctx.reply('Привет, привет!'))
-bot.launch()
